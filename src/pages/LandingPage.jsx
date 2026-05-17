@@ -137,12 +137,6 @@ const LandingPage = () => {
     return () => clearInterval(id);
   }, [next]);
 
-  const visibleIndices = [
-    (current - 1 + TOTAL) % TOTAL,
-    current,
-    (current + 1) % TOTAL
-  ];
-
   return (
     <>
       <Header showSearch={false} />
@@ -168,17 +162,25 @@ const LandingPage = () => {
         {/* ── Carousel ── */}
         <div className="carousel-section" style={{ position: 'relative', zIndex: 2 }}>
           <button className="carousel-arrow left" onClick={prev} aria-label="Previous">&#8592;</button>
-          <div className="carousel-track">
-            {visibleIndices.map((modIdx, position) => (
-              <div
-                key={SHOWCASE_MODS[modIdx].id}
-                className={`carousel-card ${position === 1 ? 'carousel-card--center' : 'carousel-card--side'}`}
-              >
-                <ModCard mod={SHOWCASE_MODS[modIdx]} compact={true} />
-              </div>
-            ))}
+          
+          <div className="carousel-viewport">
+            <div 
+              className="carousel-track"
+              style={{ transform: `translateX(calc(50% - 130px - ${current * 280}px))` }}
+            >
+              {SHOWCASE_MODS.map((mod, i) => (
+                <div
+                  key={mod.id}
+                  className={`carousel-card ${i === current ? 'carousel-card--center' : 'carousel-card--side'}`}
+                >
+                  <ModCard mod={mod} compact={true} />
+                </div>
+              ))}
+            </div>
           </div>
+
           <button className="carousel-arrow right" onClick={next} aria-label="Next">&#8594;</button>
+          
           <div className="carousel-dots">
             {SHOWCASE_MODS.map((_, i) => (
               <button

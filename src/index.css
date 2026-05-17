@@ -494,71 +494,40 @@ button, input {
   transform: translateY(-2px);
 }
 
-.horizontal-scroll-section {
-  width: 100%;
-  margin-top: 2rem;
-  overflow: hidden;
-}
-
-.marquee-container {
-  overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
-  position: relative;
-}
-
-.marquee-container:hover .marquee-content {
-  animation-play-state: paused;
-}
-
-.marquee-content {
-  display: flex;
-  align-items: stretch;
-  gap: 1.5rem;
-  padding: 0.5rem 0;
-  width: max-content;
-  animation: scrollLeft 120s linear infinite;
-}
-
-@keyframes scrollLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.marquee-content > * {
-  flex: 0 0 220px;
-  white-space: normal; /* Fixes text stretching the cards */
-  max-width: 220px;
-  align-self: stretch;
-  height: auto;
-}
-
 /* ── Carousel ── */
 .carousel-section {
   width: 100%;
   max-width: 960px;
   margin: 2rem auto 0;
   position: relative;
-  padding: 1rem 0 3.5rem; /* bottom room for dots */
+  padding: 1.5rem 0 3.5rem; /* bottom room for dots */
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
+  gap: 0.5rem;
+}
+
+.carousel-viewport {
+  flex: 1;
+  overflow: hidden; /* Hides overflowing cards beautifully */
+  padding: 1.5rem 0; /* Extra vertical space for scaled center card */
+  margin: 0 1rem;
 }
 
 .carousel-track {
   display: flex;
   align-items: stretch;
-  justify-content: center;
-  gap: 1.25rem;
-  flex: 1;
-  overflow: visible;
-  padding: 0.5rem 0;
+  gap: 20px; /* 20px gap */
+  width: max-content; /* Prevents wrapping */
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
 }
 
 .carousel-card {
   flex: 0 0 260px;
-  transition: transform 0.35s ease, opacity 0.35s ease;
+  width: 260px;
+  height: 230px; /* Absolutely static, guaranteed height */
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
   min-width: 0;
 }
 
