@@ -137,7 +137,11 @@ const LandingPage = () => {
     return () => clearInterval(id);
   }, [next]);
 
-  const visibleIndices = Array.from({ length: VISIBLE }, (_, i) => (current + i) % TOTAL);
+  const visibleIndices = [
+    (current - 1 + TOTAL) % TOTAL,
+    current,
+    (current + 1) % TOTAL
+  ];
 
   return (
     <>
