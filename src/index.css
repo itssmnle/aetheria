@@ -620,9 +620,7 @@ button, input {
   position: relative;
 }
 
-.marquee-container:hover .marquee-content {
-  animation-play-state: paused;
-}
+
 
 .marquee-content {
   display: flex;

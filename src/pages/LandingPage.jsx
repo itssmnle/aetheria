@@ -58,10 +58,10 @@ function ParticleCanvas() {
 }
 
 const LandingPage = () => {
-  const nextSectionRef = useRef(null);
+  const communityRef = useRef(null);
 
   const scrollToContent = () => {
-    nextSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    communityRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -84,7 +84,7 @@ const LandingPage = () => {
         </div>
 
         {/* ── Second Section Content Wrapper ── */}
-        <div ref={nextSectionRef} className="landing-content-wrap" style={{ width: '100%', position: 'relative', zIndex: 2, paddingBottom: '4rem' }}>
+        <div className="landing-content-wrap" style={{ width: '100%', position: 'relative', zIndex: 2, paddingBottom: '4rem' }}>
           
           {/* Hero text & buttons */}
           <div className="hero" style={{ marginTop: '2rem', textAlign: 'left', maxWidth: '850px', margin: '2rem auto 3.5rem auto', padding: '0 2rem' }}>
@@ -116,7 +116,7 @@ const LandingPage = () => {
           </div>
 
           {/* Community Section */}
-          <div className="community-section">
+          <div ref={communityRef} className="community-section">
             <div className="community-bg-overlay" />
             <div className="community-content">
               <h2 className="community-title">JOIN THE COMMUNITY.</h2>
