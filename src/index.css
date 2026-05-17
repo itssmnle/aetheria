@@ -512,7 +512,8 @@ button, input {
 
 .btn-primary {
   background-color: var(--accent-purple);
-  color: #ffffff;
+  color: #0a0a0a !important;
+  font-weight: 700;
   border: none;
 }
 
@@ -533,106 +534,94 @@ button, input {
 }
 
 /* ── Carousel ── */
-.carousel-section {
+/* ── Landing Splash Fold ── */
+.landing-splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   width: 100%;
-  max-width: 960px;
-  margin: 2rem auto 0;
   position: relative;
-  padding: 1.5rem 0 3.5rem; /* bottom room for dots */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  box-sizing: border-box;
+  padding-bottom: 8vh;
+  margin-top: -10vh; /* Balance out header padding-top offset */
 }
 
-.carousel-viewport {
-  flex: 1;
-  height: 260px; /* Lock height to prevent collapsing to 0 */
-  overflow: hidden; /* Hides overflowing cards beautifully */
-  position: relative;
-  margin: 0 1rem;
-}
-
-.carousel-track {
-  display: flex;
-  align-items: center; /* Center cards vertically */
-  height: 100%;
-  gap: 20px; /* 20px gap */
-  width: max-content; /* Prevents wrapping */
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform;
-}
-
-.carousel-card {
-  flex: 0 0 260px;
-  width: 260px;
-  height: 230px; /* Absolutely static, guaranteed height */
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
-  min-width: 0;
-}
-
-.carousel-card--center {
-  transform: scale(1.05);
-  opacity: 1;
-  z-index: 2;
-}
-
-.carousel-card--side {
-  transform: scale(0.93);
-  opacity: 0.65;
-  z-index: 1;
-}
-
-.carousel-arrow {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
+/* Down Chevron / Scroll Arrow */
+.scroll-down-btn {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 1.1rem;
-  color: var(--text-primary);
-  cursor: pointer;
+  width: 46px;
+  height: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  transition: background 0.2s, transform 0.15s;
-  z-index: 3;
+  cursor: pointer;
+  margin-top: 3.5rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  animation: bounceArrow 2s infinite;
 }
 
-.carousel-arrow:hover {
-  background: var(--bg-card-hover);
+.scroll-down-btn:hover {
+  border-color: #ffffff;
   transform: scale(1.1);
+  animation-play-state: paused;
 }
 
-.carousel-dots {
-  position: absolute;
-  bottom: 0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+@keyframes bounceArrow {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+/* ── Horizontal Scroll Marquee (Conveyor Belt) ── */
+.horizontal-scroll-section {
+  width: 100%;
+  margin-top: 4rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  position: relative;
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+.marquee-content {
   display: flex;
-  gap: 0.25rem;
-  align-items: center;
-  max-width: 90%;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  width: max-content;
+  animation: scrollLeft 60s linear infinite;
 }
 
-.carousel-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  border: none;
-  background: var(--border-color);
-  cursor: pointer;
-  padding: 0;
-  transition: background 0.2s, width 0.25s, border-radius 0.25s;
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.carousel-dot--active {
-  background: var(--accent-purple);
-  width: 16px;
-  border-radius: 3px;
+.marquee-content > * {
+  flex: 0 0 260px;
+  white-space: normal; /* Fixes text stretching the cards */
+  max-width: 260px;
+  align-self: stretch;
+  height: auto;
 }
 
 /* ── Community Section ── */
