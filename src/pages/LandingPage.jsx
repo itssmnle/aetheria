@@ -42,12 +42,11 @@ const LandingPage = () => {
           
           {/* Hero text & buttons */}
           <div className="hero" style={{ marginTop: '2rem', textAlign: 'left', maxWidth: '850px', margin: '2rem auto 3.5rem auto', padding: '0 2rem' }}>
-            <h2 className="hero-section-title">THE HOME OF GREED</h2>
-            <div className="hero-section-subtitle">MINECRAFT'S MOST COMPETITIVE EVENT</div>
+            <h2 className="hero-section-title">Aetheria SMP</h2>
+            <div className="hero-section-subtitle">A COLLABORATIVE STORY-DRIVEN WORLD</div>
             <div className="hero-section-desc">
-              <p>Money SMP is a 5-day intensive event, where 5 teams of 6 players compete to earn a real-life cash prize.</p>
-              <p>Teams earn money through playing events, raiding bases or eliminating players.</p>
-              <p>The team with the highest balance at the end of the season will earn that money in real life. It's a test of determination, coordination and endurance to ensure you always have the upper hand, and thinking one step ahead is the name of the game.</p>
+              <p>AetheriaSMP is a collaborative building and community-focused Minecraft server where creativity thrives in a griefing-free environment.</p>
+              <p>Lore-driven world designed for builders, storytellers, and adventurers. Join a welcoming community to play, explore, and shape a world that conveals many more mysteries from you.</p>
             </div>
             <div className="hero-buttons" style={{ justifyContent: 'flex-start', marginTop: '2rem' }}>
               <Link to="/mods" className="btn btn-primary">Discover mods</Link>

@@ -441,7 +441,6 @@ button, input {
   background: linear-gradient(to top, var(--bg-dark) 0%, transparent 100%);
 }
 
-/* ── Landing Page ── */
 .landing-page {
   display: flex;
   flex-direction: column;
@@ -451,8 +450,53 @@ button, input {
   padding-left: 100px;
   padding-top: 10vh;
   width: 100%;
-  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 15%, #000000 85%, #000000 100%) !important;
+  background: #000000 !important;
   overflow-x: hidden;
+}
+
+/* Middle fold gradient that starts below the banner and ends before the community section */
+.landing-content-wrap {
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 15%, #000000 85%, #000000 100%) !important;
+}
+
+/* Ensure typography pops beautifully on the white section of the gradient */
+.landing-content-wrap .hero-section-title {
+  color: #18181b !important; /* Elegant zinc-900 slate black */
+  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.5));
+}
+
+.landing-content-wrap .hero-section-subtitle {
+  color: #4b5563 !important; /* zinc-600 gray */
+}
+
+.landing-content-wrap .hero-section-desc p {
+  color: #27272a !important; /* Dark slate readability */
+  text-shadow: none !important;
+}
+
+/* Button overrides for contrast in the white section */
+.landing-content-wrap .hero .btn-primary {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+}
+
+.landing-content-wrap .hero .btn-primary:hover {
+  background: #27272a !important;
+  border-color: #27272a !important;
+  transform: translateY(-2px);
+}
+
+.landing-content-wrap .hero .btn-secondary {
+  background: transparent !important;
+  color: #18181b !important;
+  border: 2px solid #18181b !important;
+}
+
+.landing-content-wrap .hero .btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.06) !important;
+  transform: translateY(-2px);
 }
 
 
@@ -593,6 +637,11 @@ button, input {
   position: relative;
   z-index: 2;
   margin-top: -18vh; /* Vertically centered inside the upper half of the banner */
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.98)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.85));
+}
+
+.landing-splash h1 .mc-font-gradient {
+  -webkit-text-stroke: 1.5px #000000; /* Robust black outline to pop on light banner backdrops */
 }
 
 .landing-splash .scroll-down-btn {
@@ -603,9 +652,9 @@ button, input {
 
 /* Down Chevron / Scroll Arrow */
 .scroll-down-btn {
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  color: #ffffff;
+  background: rgba(10, 10, 10, 0.85) !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
   border-radius: 50%;
   width: 46px;
   height: 46px;
@@ -614,14 +663,18 @@ button, input {
   justify-content: center;
   cursor: pointer;
   margin-top: 3.5rem;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
   animation: bounceArrow 2s infinite;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
 }
 
 .scroll-down-btn:hover {
-  border-color: #ffffff;
+  background: #000000 !important;
+  border-color: #ffffff !important;
   transform: scale(1.1);
   animation-play-state: paused;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.95);
 }
 
 @keyframes bounceArrow {
