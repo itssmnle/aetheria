@@ -62,7 +62,16 @@ const LandingPage = () => {
   const nextSectionRef = useRef(null);
 
   const scrollToContent = () => {
-    nextSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (communityRef.current) {
+      const rect = communityRef.current.getBoundingClientRect();
+      const absoluteTop = rect.top + window.scrollY;
+      window.scrollTo({
+        top: absoluteTop - window.innerHeight,
+        behavior: 'smooth'
+      });
+    } else {
+      nextSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
