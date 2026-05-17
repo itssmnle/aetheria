@@ -4,59 +4,6 @@ import Header from '../components/Header';
 import ModCard from '../components/ModCard';
 import { modsData } from '../data/mods';
 
-/* ── Floating particle canvas ── */
-import { useEffect } from 'react';
-
-function ParticleCanvas() {
-  const canvasRef = useRef(null);
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let animId;
-    let W, H;
-    const COUNT = 70;
-    const particles = [];
-
-    function resize() {
-      W = canvas.width = canvas.offsetWidth;
-      H = canvas.height = canvas.offsetHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    for (let i = 0; i < COUNT; i++) {
-      particles.push({
-        x: Math.random() * (W || 1200),
-        y: Math.random() * (H || 800),
-        r: Math.random() * 2 + 0.5,
-        dx: (Math.random() - 0.5) * 0.35,
-        dy: -(Math.random() * 0.45 + 0.15),
-        alpha: Math.random() * 0.45 + 0.12,
-      });
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, W, H);
-      for (const p of particles) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(100,116,139,${p.alpha})`;
-        ctx.fill();
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.y < -5) { p.y = H + 5; p.x = Math.random() * W; }
-        if (p.x < -5) p.x = W + 5;
-        if (p.x > W + 5) p.x = -5;
-      }
-      animId = requestAnimationFrame(draw);
-    }
-    draw();
-    return () => { cancelAnimationFrame(animId); window.removeEventListener('resize', resize); };
-  }, []);
-  return <canvas ref={canvasRef} className="particle-canvas" />;
-}
-
 const LandingPage = () => {
   const communityRef = useRef(null);
   const nextSectionRef = useRef(null);
@@ -78,24 +25,7 @@ const LandingPage = () => {
     <>
       <Header showSearch={false} />
 
-      {/* SVG filter to extract dark lines from purple background and turn them white & transparent */}
-      <svg style={{ position: 'absolute', width: 0, height: 0, pointerEvents: 'none' }}>
-        <defs>
-          <filter id="white-lines-transparent-bg">
-            <feColorMatrix type="matrix" values="
-              -1.5  0    0    0   1.5
-               0   -1.5  0    0   1.5
-               0    0   -1.5  0   1.5
-              -4.5 -4.5 -4.5  0   4.0
-            " />
-          </filter>
-        </defs>
-      </svg>
-
       <div className="landing-page" style={{ paddingTop: '10vh', position: 'relative' }}>
-
-        {/* Floating background particles */}
-        <ParticleCanvas />
 
         {/* ── First Fold: Minimalist Splash ── */}
         <div className="landing-splash">
