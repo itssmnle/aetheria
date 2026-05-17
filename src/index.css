@@ -1,27 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Press+Start+2P&family=Reddit+Mono:wght@200..900&display=swap');
 
 :root {
-  --bg-dark: #f8fafc;
+  --bg-dark: #f4f4f5;
   --bg-card: #ffffff;
-  --bg-card-hover: #f1f5f9;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --accent-purple: #334155;
-  --accent-purple-hover: #1e293b;
-  --accent-purple-glow: rgba(51, 65, 85, 0.15);
-  --border-color: #e2e8f0;
+  --bg-card-hover: #eaeaea;
+  --text-primary: #171717;
+  --text-secondary: #525252;
+  --accent-purple: #171717;
+  --accent-purple-hover: #404040;
+  --accent-purple-glow: rgba(23, 23, 23, 0.08);
+  --border-color: #e5e5e5;
 }
 
 body.dark-mode {
-  --bg-dark: #090d16;
-  --bg-card: #111827;
-  --bg-card-hover: #1f2937;
-  --text-primary: #f9fafb;
-  --text-secondary: #9ca3af;
-  --accent-purple: #9ca3af;
-  --accent-purple-hover: #f9fafb;
-  --accent-purple-glow: rgba(156, 163, 175, 0.15);
-  --border-color: #1f2937;
+  --bg-dark: #0a0a0a;
+  --bg-card: #141414;
+  --bg-card-hover: #1e1e1e;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --accent-purple: #ffffff;
+  --accent-purple-hover: #e0e0e0;
+  --accent-purple-glow: rgba(255, 255, 255, 0.08);
+  --border-color: #242424;
 }
 
 * {
@@ -123,17 +123,25 @@ button, input {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  text-align: center;
   color: #888888;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 0.7rem;
-  width: fit-content;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.15s ease;
+  backface-visibility: hidden;
 }
 
-/* Literal simple hover underline, absolutely no boxes or custom fades */
-.sidebar-link:hover, .sidebar-link.active {
+.sidebar-link.active {
   color: #ffffff !important;
-  text-decoration: underline !important;
+  text-decoration: none !important; /* No underline on current page by default */
+}
+
+.sidebar-link:hover {
+  color: #ffffff !important;
+  text-decoration: underline !important; /* Underline ONLY on hover */
+  transform: scale(1.12); /* Enlarge a little on hover */
 }
 
 /* Sidebar Search container */
@@ -966,9 +974,14 @@ body {
     justify-content: center;
     color: #888888;
   }
-  .sidebar-link:hover, .sidebar-link.active {
+  .sidebar-link.active {
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+  .sidebar-link:hover {
     color: #ffffff !important;
     text-decoration: underline !important;
+    transform: scale(1.12);
   }
   .landing-page {
     padding-left: 0;
