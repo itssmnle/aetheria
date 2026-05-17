@@ -603,12 +603,13 @@ button, input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 75vh; /* Completely closes the black gap! */
+  min-height: 100vh; /* Set to full viewport height to push elements out of initial view! */
   width: 100%;
   position: relative;
   box-sizing: border-box;
   margin-top: -10vh; /* Balance out header padding-top offset */
   overflow: hidden;
+  background: #ffffff; /* Solid white background under the banner image! */
 }
 
 .landing-splash::before {
@@ -617,7 +618,7 @@ button, input {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0; /* Cover the entire 75vh splash block */
+  height: 75vh; /* Restrict the banner image strictly to the top 75% of the fold */
   background-image: url('/images/banner.png');
   background-size: cover;
   background-position: center;
@@ -629,7 +630,7 @@ button, input {
 .landing-splash h1 {
   position: relative;
   z-index: 2;
-  margin-top: -15vh; /* Vertically centered inside the upper half of the 75vh banner */
+  margin-top: -22vh; /* Floating in the upper half of the 75vh banner area */
 }
 
 .banner-title {
@@ -648,7 +649,7 @@ button, input {
 .landing-splash .scroll-down-btn {
   position: relative;
   z-index: 2;
-  margin-top: 10vh; /* Perfectly positions button near bottom of 75vh banner */
+  margin-top: 18vh; /* Positioned perfectly in the center of the 25vh solid white bottom area */
 }
 
 /* Down Chevron / Scroll Arrow */
