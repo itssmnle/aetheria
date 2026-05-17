@@ -4,9 +4,15 @@ import Header from '../components/Header';
 import ModCard from '../components/ModCard';
 import { modsData } from '../data/mods';
 
-const SHOWCASE_MODS = modsData.slice(0, 5);
-const VISIBLE = 3;
+const SHOWCASE_MODS = modsData;
 const TOTAL = SHOWCASE_MODS.length;
+const CLONE_COUNT = 5;
+
+const renderedMods = [
+  ...SHOWCASE_MODS.slice(-CLONE_COUNT),
+  ...SHOWCASE_MODS,
+  ...SHOWCASE_MODS.slice(0, CLONE_COUNT)
+];
 
 /* ── Floating particle canvas ── */
 function ParticleCanvas() {
@@ -166,16 +172,19 @@ const LandingPage = () => {
           <div className="carousel-viewport">
             <div 
               className="carousel-track"
-              style={{ transform: `translateX(calc(50% - 130px - ${current * 280}px))` }}
+              style={{ transform: `translateX(calc(50% - 130px - ${(current + CLONE_COUNT) * 280}px))` }}
             >
-              {SHOWCASE_MODS.map((mod, i) => (
-                <div
-                  key={mod.id}
-                  className={`carousel-card ${i === current ? 'carousel-card--center' : 'carousel-card--side'}`}
-                >
-                  <ModCard mod={mod} compact={true} />
-                </div>
-              ))}
+              {renderedMods.map((mod, i) => {
+                const isCenter = (i - CLONE_COUNT) === current;
+                return (
+                  <div
+                    key={`${mod.id}-${i}`}
+                    className={`carousel-card ${isCenter ? 'carousel-card--center' : 'carousel-card--side'}`}
+                  >
+                    <ModCard mod={mod} compact={true} />
+                  </div>
+                );
+              })}
             </div>
           </div>
 
