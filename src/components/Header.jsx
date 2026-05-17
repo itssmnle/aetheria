@@ -4,6 +4,17 @@ import { Link, useLocation } from 'react-router-dom';
 const Header = ({ searchQuery, setSearchQuery, showSearch = false }) => {
   const location = useLocation();
 
+  const handleTrailerClick = (e) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById('trailer-section');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      window.history.pushState(null, '', '#trailer');
+    }
+  };
+
   return (
     <nav className="sidebar-nav">
       {/* ── Top Logo Circle Image Only ── */}
@@ -15,10 +26,14 @@ const Header = ({ searchQuery, setSearchQuery, showSearch = false }) => {
 
       {/* ── Navigation Links (No Icons, simple underlines) ── */}
       <div className="sidebar-links">
-        <Link to="/" className={`sidebar-link ${location.pathname === '/' ? 'active' : ''}`}>
+        <Link to="/" className={`sidebar-link ${location.pathname === '/' && location.hash !== '#trailer' ? 'active' : ''}`}>
           <span className="link-text">HOME</span>
         </Link>
         
+        <Link to="/#trailer" className={`sidebar-link ${location.hash === '#trailer' ? 'active' : ''}`} onClick={handleTrailerClick}>
+          <span className="link-text">TRAILER</span>
+        </Link>
+
         <Link to="/mods" className={`sidebar-link ${location.pathname === '/mods' ? 'active' : ''}`}>
           <span className="link-text">MODS</span>
         </Link>

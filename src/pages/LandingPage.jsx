@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import ModCard from '../components/ModCard';
 import { modsData } from '../data/mods';
@@ -7,6 +7,19 @@ import { modsData } from '../data/mods';
 const LandingPage = () => {
   const communityRef = useRef(null);
   const nextSectionRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === '#trailer') {
+      const timer = setTimeout(() => {
+        const element = document.getElementById('trailer-section');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [location.hash]);
 
   const scrollToContent = () => {
     if (communityRef.current) {
@@ -65,6 +78,24 @@ const LandingPage = () => {
                   <ModCard key={`b-${mod.id}`} mod={mod} compact={true} />
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* Trailer Section */}
+          <div id="trailer-section" className="trailer-section">
+            <div className="trailer-header">
+              <h2 className="trailer-title">WATCH TRAILER</h2>
+              <div className="trailer-subtitle">PREVIOUS SEASON VIDEOS</div>
+            </div>
+            <div className="trailer-video-wrapper">
+              <iframe 
+                src="https://www.youtube.com/embed/m9YzqX62_Rg?si=PtI3vTRgRvhC3Ozk" 
+                title="Aetheria SMP Trailer" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
 
