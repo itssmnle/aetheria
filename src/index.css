@@ -451,6 +451,25 @@ button, input {
   padding-left: 100px;
   padding-top: 10vh;
   width: 100%;
+  background: radial-gradient(circle at 80% 35%, #2a040b 0%, #0a0a0a 55%, #000000 100%) !important;
+  overflow-x: hidden;
+}
+
+.bg-character-artwork {
+  position: absolute;
+  top: 5vh;
+  right: 2vw;
+  width: 500px;
+  height: 90vh;
+  background-image: url('/images/character_lineart.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  z-index: 1;
+  pointer-events: none;
+  filter: invert(1) sepia(1) saturate(12) hue-rotate(342deg) brightness(1.25) contrast(1.1);
+  mix-blend-mode: screen;
+  opacity: 0.18;
 }
 
 .hero {
