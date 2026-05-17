@@ -489,7 +489,7 @@ button, input {
 .mc-font-gradient {
   font-family: 'Press Start 2P', system-ui;
   font-size: 3.2rem; /* Adjusted slightly so it doesn't break layout */
-  background: linear-gradient(135deg, #64748b 0%, #cbd5e1 50%, #475569 100%);
+  background: linear-gradient(to bottom, #ffffff 10%, #e4e4e7 45%, #a1a1aa 65%, #3f3f46 95%, #18181b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
