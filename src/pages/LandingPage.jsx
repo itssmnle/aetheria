@@ -4,9 +4,9 @@ import Header from '../components/Header';
 import ModCard from '../components/ModCard';
 import { modsData } from '../data/mods';
 
-const SHOWCASE_MODS = modsData;
+const SHOWCASE_MODS = modsData.slice(0, 9);
 const TOTAL = SHOWCASE_MODS.length;
-const CLONE_COUNT = 5;
+const CLONE_COUNT = 3;
 
 const renderedMods = [
   ...SHOWCASE_MODS.slice(-CLONE_COUNT),
