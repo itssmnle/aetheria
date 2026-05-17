@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Press+Start+2P&family=Reddit+Mono:wght@200..900&display=swap');
 
 :root {
   --bg-dark: #f8fafc;
@@ -55,7 +55,7 @@ button, input {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-left: 240px;
+  padding-left: 150px;
 }
 
 /* ── Left Sidebar Navigation ── */
@@ -63,17 +63,18 @@ button, input {
   position: fixed;
   top: 0;
   left: 0;
-  width: 240px;
+  width: 150px;
   height: 100vh;
-  background-color: var(--bg-card);
-  border-right: 1px solid var(--border-color);
+  background: linear-gradient(to bottom, #240909 0%, #0d0202 100%);
+  border-right: 1px solid rgba(140, 28, 28, 0.18);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2.5rem 1.5rem;
+  padding: 3rem 1rem;
   z-index: 10000;
-  backdrop-filter: blur(12px);
   transition: all 0.3s ease;
+  font-family: 'Reddit Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
 }
 
 /* Logo Section */
@@ -81,41 +82,32 @@ button, input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 3.5rem;
+  margin-bottom: 4rem;
 }
 
 .sidebar-logo-circle {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--bg-dark) 0%, var(--bg-card-hover) 100%);
-  border: 2px solid var(--border-color);
+  background: radial-gradient(circle, #2e0909 0%, #150303 100%);
+  border: 2px solid #5a1212;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
 }
 
 .sidebar-logo-circle:hover {
   transform: rotate(15deg) scale(1.05);
-  border-color: var(--accent-purple);
+  border-color: #9e2323;
 }
 
 .sidebar-logo-crest {
-  font-size: 2.2rem;
-  color: var(--text-primary);
+  font-size: 1.8rem;
+  color: #fca5a5;
   line-height: 1;
-}
-
-.sidebar-logo-text {
-  font-family: 'Press Start 2P', system-ui;
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-  color: var(--text-primary);
-  text-align: center;
 }
 
 /* Links List */
@@ -123,100 +115,104 @@ button, input {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1.5rem;
   flex: 1;
+  align-items: center;
 }
 
 .sidebar-link {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  padding: 0.85rem 1.25rem;
-  color: var(--text-secondary);
+  justify-content: center;
+  padding: 0.5rem 0;
+  color: #b91c1c; /* custom dark mahogany red text */
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.9rem;
-  border-radius: 8px;
-  transition: all 0.25s ease;
-  border-left: 3px solid transparent;
+  font-size: 0.8rem;
+  transition: color 0.25s ease;
+  position: relative;
+  width: fit-content;
 }
 
-.sidebar-link:hover {
-  color: var(--text-primary);
-  background-color: var(--bg-dark);
-  border-left-color: var(--text-secondary);
+/* Color transition for active/hover */
+.sidebar-link:hover, .sidebar-link.active {
+  color: #fca5a5 !important;
 }
 
-.sidebar-link.active {
-  color: var(--text-primary);
-  background-color: var(--bg-dark);
-  border-left-color: var(--accent-purple);
-  box-shadow: inset 2px 0 8px rgba(0,0,0,0.02);
+/* Custom Expanding Underline on Hover (No more boxes!) */
+.sidebar-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background-color: #fca5a5;
+  transition: width 0.25s ease, left 0.25s ease;
+}
+
+.sidebar-link:hover::after, .sidebar-link.active::after {
+  width: 100%;
+  left: 0;
 }
 
 /* Sidebar Search container */
 .sidebar-search-container {
   width: 100%;
-  position: relative;
   margin-bottom: 2rem;
+  padding: 0 0.5rem;
 }
 
 .sidebar-search-input {
   width: 100%;
-  padding: 0.75rem 1rem 0.75rem 2.5rem;
-  background-color: var(--bg-dark);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  color: var(--text-primary);
-  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  background-color: rgba(13, 2, 2, 0.7);
+  border: 1px solid #4a1010;
+  border-radius: 6px;
+  color: #fca5a5;
+  font-size: 0.75rem;
+  text-align: center;
   transition: all 0.2s ease;
 }
 
 .sidebar-search-input:focus {
   outline: none;
-  border-color: var(--accent-purple);
-  box-shadow: 0 0 0 3px var(--accent-purple-glow);
+  border-color: #9e2323;
+  box-shadow: 0 0 0 2px rgba(158, 35, 35, 0.25);
 }
 
-.sidebar-search-icon {
-  position: absolute;
-  left: 0.85rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--text-secondary);
-}
-
-/* Bottom Social Grid */
+/* Bottom Social Grid (YouTube & Discord Circles) */
 .sidebar-socials {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
   width: 100%;
   margin-top: auto;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border-color);
+  padding-top: 2rem;
+  border-top: 1px solid rgba(90, 18, 18, 0.3);
 }
 
 .social-tile {
-  background-color: var(--bg-dark);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  height: 44px;
+  background-color: #1a0505;
+  border: 1px solid #3a0d0d;
+  border-radius: 50%; /* Rounded circles */
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-secondary);
+  color: #fca5a5;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   text-decoration: none;
 }
 
 .social-tile:hover {
-  background-color: var(--bg-card);
-  color: var(--text-primary);
+  background-color: #2b0b0b;
+  color: #fff;
   transform: translateY(-2px);
-  border-color: var(--accent-purple);
-  box-shadow: 0 4px 12px var(--accent-purple-glow);
+  border-color: #9e2323;
+  box-shadow: 0 4px 12px rgba(158, 35, 35, 0.4);
 }
 
 /* Main Content Layout */
@@ -475,7 +471,7 @@ button, input {
   min-height: 100vh;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 240px;
+  padding-left: 150px;
   padding-top: 10vh;
   width: 100%;
 }
@@ -740,7 +736,7 @@ button, input {
 .history-page {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 4rem 2rem 4rem calc(2rem + 240px);
+  padding: 4rem 2rem 4rem calc(2rem + 150px);
 }
 
 .history-header {
@@ -955,36 +951,36 @@ body {
 @media (max-width: 1024px) {
   .sidebar-nav {
     width: 80px;
-    padding: 2rem 0.5rem;
-  }
-  .sidebar-logo-text, .sidebar-link .link-text, .sidebar-search-container {
-    display: none;
+    padding: 2.5rem 0.5rem;
   }
   .sidebar-logo-section {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
   }
   .sidebar-logo-circle {
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
   }
   .sidebar-logo-crest {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   .sidebar-link {
-    justify-content: center;
-    padding: 0.85rem;
-    border-left: none;
-    border-bottom: 3px solid transparent;
+    padding: 0.75rem 0;
+  }
+  .sidebar-link::after {
+    display: none !important; /* Hide underlines in tablet sidebar to save vertical space */
   }
   .sidebar-link.active {
-    border-bottom-color: var(--accent-purple);
+    color: #fca5a5 !important;
   }
   .sidebar-socials {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: center;
     gap: 0.5rem;
+    padding-top: 1.5rem;
   }
   .social-tile {
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
   .landing-page {
     padding-left: 80px;
@@ -1008,8 +1004,10 @@ body {
     flex-direction: row;
     justify-content: space-around;
     padding: 0 1rem;
+    background: linear-gradient(to right, #240909 0%, #0d0202 100%) !important;
     border-right: none;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid rgba(140, 28, 28, 0.18) !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
   }
   .sidebar-logo-section, .sidebar-socials, .sidebar-search-container {
     display: none !important;
@@ -1021,16 +1019,19 @@ body {
     margin: 0;
     gap: 0;
     flex: 1;
+    align-items: center;
   }
   .sidebar-link {
-    border-bottom: none;
-    border-top: 3px solid transparent;
     height: 100%;
-    border-radius: 0;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .sidebar-link.active {
-    border-top-color: var(--accent-purple);
+  .sidebar-link::after {
+    display: block !important;
+    bottom: 0;
+    height: 3px;
   }
   .landing-page {
     padding-left: 0;
