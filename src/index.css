@@ -2,18 +2,6 @@
 
 
 :root {
-  --bg-dark: #f4f4f5;
-  --bg-card: #ffffff;
-  --bg-card-hover: #eaeaea;
-  --text-primary: #171717;
-  --text-secondary: #525252;
-  --accent-purple: #171717;
-  --accent-purple-hover: #404040;
-  --accent-purple-glow: rgba(23, 23, 23, 0.08);
-  --border-color: #e5e5e5;
-}
-
-body.dark-mode {
   --bg-dark: #0a0a0a;
   --bg-card: #141414;
   --bg-card-hover: #1e1e1e;
@@ -130,8 +118,7 @@ button, input {
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
-  transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.15s ease;
-  backface-visibility: hidden;
+  transition: color 0.1s ease;
 }
 
 .sidebar-link.active {
@@ -142,7 +129,6 @@ button, input {
 .sidebar-link:hover {
   color: #ffffff !important;
   text-decoration: underline !important; /* Underline ONLY on hover */
-  transform: scale(1.12); /* Enlarge a little on hover */
 }
 
 /* Sidebar Search container */
@@ -995,7 +981,6 @@ body {
   .sidebar-link:hover {
     color: #ffffff !important;
     text-decoration: underline !important;
-    transform: scale(1.12);
   }
   .landing-page {
     padding-left: 0;
