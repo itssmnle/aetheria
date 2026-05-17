@@ -83,9 +83,6 @@ const LandingPage = () => {
         {/* Floating background particles */}
         <ParticleCanvas />
 
-        {/* Dynamic colorized character artwork backdrop */}
-        <div className="bg-character-artwork" />
-
         {/* ── First Fold: Minimalist Splash ── */}
         <div className="landing-splash">
           <h1><span className="mc-font-gradient">Aetheria</span></h1>

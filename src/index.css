@@ -455,22 +455,6 @@ button, input {
   overflow-x: hidden;
 }
 
-.bg-character-artwork {
-  position: absolute;
-  top: 5vh;
-  right: 2vw;
-  width: 500px;
-  height: 90vh;
-  background-image: url('/images/character_lineart.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  z-index: 1;
-  pointer-events: none;
-  filter: invert(1) sepia(1) saturate(12) hue-rotate(342deg) brightness(1.25) contrast(1.1);
-  mix-blend-mode: screen;
-  opacity: 0.18;
-}
 
 .hero {
   text-align: center;
@@ -587,6 +571,10 @@ button, input {
   box-sizing: border-box;
   padding-bottom: 8vh;
   margin-top: -10vh; /* Balance out header padding-top offset */
+  background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.1) 0%, rgba(10, 10, 10, 0.45) 55%, #0a0a0a 100%), url('/images/landing_hero_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Down Chevron / Scroll Arrow */
