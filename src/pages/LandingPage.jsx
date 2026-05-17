@@ -81,24 +81,6 @@ const LandingPage = () => {
             </div>
           </div>
 
-          {/* Trailer Section */}
-          <div id="trailer-section" className="trailer-section">
-            <div className="trailer-header">
-              <h2 className="trailer-title">WATCH TRAILER</h2>
-              <div className="trailer-subtitle">PREVIOUS SEASON VIDEOS</div>
-            </div>
-            <div className="trailer-video-wrapper">
-              <iframe 
-                src="https://www.youtube.com/embed/m9YzqX62_Rg?si=PtI3vTRgRvhC3Ozk" 
-                title="Aetheria SMP Trailer" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerPolicy="strict-origin-when-cross-origin" 
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
-
           {/* Community Section */}
           <div ref={communityRef} className="community-section">
             <div className="community-bg-overlay" />
@@ -119,6 +101,24 @@ const LandingPage = () => {
                   Subscribe on YouTube
                 </a>
               </div>
+            </div>
+          </div>
+
+          {/* Trailer Section */}
+          <div id="trailer-section" className="trailer-section">
+            <div className="trailer-header">
+              <h2 className="trailer-title">WATCH TRAILER</h2>
+              <div className="trailer-subtitle">PREVIOUS SEASON VIDEOS</div>
+            </div>
+            <div className="trailer-video-wrapper">
+              <iframe 
+                src="https://www.youtube.com/embed/m9YzqX62_Rg?si=PtI3vTRgRvhC3Ozk" 
+                title="Aetheria SMP Trailer" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
 
