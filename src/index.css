@@ -695,7 +695,7 @@ button, input {
   left: -20px;
   right: -20px;
   bottom: -20px;
-  background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.72) 0%, rgba(10, 10, 10, 0.78) 100%), url('/images/community_blurred_bg.png');
+  background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.72) 0%, rgba(10, 10, 10, 0.78) 100%), url('/images/landing_hero_bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
