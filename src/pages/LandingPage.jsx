@@ -157,7 +157,7 @@ const LandingPage = () => {
 
         {/* ── Hero ── */}
         <div className="hero" style={{ position: 'relative', zIndex: 2 }}>
-          <h1>Welcome to <span className="mc-font-gradient">Aetheria</span></h1>
+          <h1><span className="mc-font-gradient">Aetheria</span></h1>
           <p>Discover, play, and share our carefully curated collection of Minecraft mods built for an exceptional experience.</p>
           <div className="hero-buttons">
             <Link to="/mods" className="btn btn-primary">Discover mods</Link>
