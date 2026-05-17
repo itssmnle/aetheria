@@ -6,14 +6,14 @@ const Header = ({ searchQuery, setSearchQuery, showSearch = false }) => {
 
   return (
     <nav className="sidebar-nav">
-      {/* ── Top Logo Circle Only (No Aetheria text) ── */}
+      {/* ── Top Logo Circle Image Only ── */}
       <div className="sidebar-logo-section">
         <Link to="/" className="sidebar-logo-circle">
-          <span className="sidebar-logo-crest">⬡</span>
+          <img src="/images/logo.png" alt="Aetheria Logo" className="sidebar-logo-img" />
         </Link>
       </div>
 
-      {/* ── Navigation Links (No Icons, smaller text, custom hover underline) ── */}
+      {/* ── Navigation Links (No Icons, simple underlines) ── */}
       <div className="sidebar-links">
         <Link to="/" className={`sidebar-link ${location.pathname === '/' ? 'active' : ''}`}>
           <span className="link-text">HOME</span>
@@ -41,7 +41,7 @@ const Header = ({ searchQuery, setSearchQuery, showSearch = false }) => {
         </div>
       )}
 
-      {/* ── Bottom Social Buttons Grid (Only YouTube and Discord) ── */}
+      {/* ── Bottom Social Buttons (White backgrounds, black icons) ── */}
       <div className="sidebar-socials">
         <a href="https://www.youtube.com/@itssmnle?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className="social-tile" aria-label="YouTube">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
