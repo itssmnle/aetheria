@@ -12,6 +12,18 @@
   --border-color: #e2e8f0;
 }
 
+body.dark-mode {
+  --bg-dark: #090d16;
+  --bg-card: #111827;
+  --bg-card-hover: #1f2937;
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --accent-purple: #9ca3af;
+  --accent-purple-hover: #f9fafb;
+  --accent-purple-glow: rgba(156, 163, 175, 0.15);
+  --border-color: #1f2937;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -858,4 +870,50 @@ button, input {
     right: auto !important;
   }
 }
+
+/* ── Theme Toggle Button ── */
+.theme-toggle-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  padding: 0;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1) rotate(15deg);
+  background: var(--bg-card-hover);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+body.dark-mode .theme-toggle-btn {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* Smooth transition for body colors during theme changes */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.card, .mod-card, .header, .sidebar, .btn, .carousel-card, .carousel-arrow, .history-item {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
 

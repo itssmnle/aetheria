@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import ModsPage from './pages/ModsPage';
 import HistoryPage from './pages/HistoryPage';
+import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/mods" element={<ModsPage />} />
         <Route path="/history" element={<HistoryPage />} />
       </Routes>
+      <ThemeToggle />
     </Router>
   );
 }
