@@ -459,14 +459,8 @@ button, input {
   background: linear-gradient(to bottom, #ffffff 0%, #ffffff 15%, #000000 85%, #000000 100%) !important;
 }
 
-/* Ensure typography pops beautifully on the white section of the gradient */
 .landing-content-wrap .hero-section-title {
-  color: #18181b !important; /* Elegant zinc-900 slate black */
-  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.5));
-}
-
-.landing-content-wrap .hero-section-subtitle {
-  color: #4b5563 !important; /* zinc-600 gray */
+  color: #000000 !important;
 }
 
 .landing-content-wrap .hero-section-desc p {
@@ -609,11 +603,10 @@ button, input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 75vh; /* Completely closes the black gap! */
   width: 100%;
   position: relative;
   box-sizing: border-box;
-  padding-bottom: 8vh;
   margin-top: -10vh; /* Balance out header padding-top offset */
   overflow: hidden;
 }
@@ -624,7 +617,7 @@ button, input {
   top: 0;
   left: 0;
   right: 0;
-  height: 75vh; /* Banner occupies the top 75% of the fold */
+  bottom: 0; /* Cover the entire 75vh splash block */
   background-image: url('/images/banner.png');
   background-size: cover;
   background-position: center;
@@ -636,18 +629,26 @@ button, input {
 .landing-splash h1 {
   position: relative;
   z-index: 2;
-  margin-top: -18vh; /* Vertically centered inside the upper half of the banner */
-  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.98)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.85));
+  margin-top: -15vh; /* Vertically centered inside the upper half of the 75vh banner */
 }
 
-.landing-splash h1 .mc-font-gradient {
-  -webkit-text-stroke: 1.5px #000000; /* Robust black outline to pop on light banner backdrops */
+.banner-title {
+  font-family: 'Press Start 2P', system-ui;
+  font-size: 3.2rem;
+  color: #000000 !important;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  text-shadow: none !important;
+  filter: none !important;
+  -webkit-text-stroke: 0px !important;
 }
 
 .landing-splash .scroll-down-btn {
   position: relative;
   z-index: 2;
-  margin-top: 15vh; /* Safely placed below the banner fold area */
+  margin-top: 10vh; /* Perfectly positions button near bottom of 75vh banner */
 }
 
 /* Down Chevron / Scroll Arrow */
