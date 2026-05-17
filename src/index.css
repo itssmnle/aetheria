@@ -571,10 +571,34 @@ button, input {
   box-sizing: border-box;
   padding-bottom: 8vh;
   margin-top: -10vh; /* Balance out header padding-top offset */
-  background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.1) 0%, rgba(10, 10, 10, 0.45) 55%, #0a0a0a 100%), url('/images/landing_hero_bg.png');
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
+}
+
+.landing-splash::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.25) 0%, rgba(10, 10, 10, 0.6) 65%, #0a0a0a 100%), url('/images/landing_hero_bg.png');
+  background-size: 125%; /* Upscaled! Zoomed to perfectly frame the central archer standoff */
+  background-position: center bottom;
   background-repeat: no-repeat;
+  filter: grayscale(100%) brightness(0.55) contrast(1.2); /* Premium monotone watermark sketch */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.landing-splash h1 {
+  position: relative;
+  z-index: 2;
+  margin-top: -6vh; /* Floating a bit on top of the horizon standoff line */
+}
+
+.landing-splash .scroll-down-btn {
+  position: relative;
+  z-index: 2;
 }
 
 /* Down Chevron / Scroll Arrow */
