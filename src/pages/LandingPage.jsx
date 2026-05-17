@@ -42,8 +42,8 @@ const LandingPage = () => {
           
           {/* Hero text & buttons */}
           <div className="hero" style={{ marginTop: '2rem', textAlign: 'left', maxWidth: '850px', margin: '2rem auto 3.5rem auto', padding: '0 2rem' }}>
-            <h2 className="hero-section-title">THE HOME OF GREED</h2>
-            <div className="hero-section-subtitle">MINECRAFT'S MOST COMPETITIVE EVENT</div>
+            <h2 className="hero-section-title">THE HOME OF CREATIVITY</h2>
+            <div className="hero-section-subtitle">A COMMUNITY MINECRAFT SERVER</div>
             <div className="hero-section-desc">
               <p>AetheriaSMP is a collaborative building and community-focused Minecraft server where creativity thrives in a griefing-free environment.</p>
               <p>Lore-driven world designed for builders, storytellers, and adventurers. Join a welcoming community to play, explore, and shape a world that conveals many more mysteries from you.</p>
