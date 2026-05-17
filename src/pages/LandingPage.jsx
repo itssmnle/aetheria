@@ -78,6 +78,20 @@ const LandingPage = () => {
     <>
       <Header showSearch={false} />
 
+      {/* SVG filter to extract dark lines from purple background and turn them white & transparent */}
+      <svg style={{ position: 'absolute', width: 0, height: 0, pointerEvents: 'none' }}>
+        <defs>
+          <filter id="white-lines-transparent-bg">
+            <feColorMatrix type="matrix" values="
+              -1.5  0    0    0   1.5
+               0   -1.5  0    0   1.5
+               0    0   -1.5  0   1.5
+              -4.5 -4.5 -4.5  0   4.0
+            " />
+          </filter>
+        </defs>
+      </svg>
+
       <div className="landing-page" style={{ paddingTop: '10vh', position: 'relative' }}>
 
         {/* Floating background particles */}
