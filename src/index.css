@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Press+Start+2P&display=swap');
 
 :root {
   --bg-dark: #f8fafc;
@@ -382,6 +382,19 @@ button, input {
   letter-spacing: -0.02em;
 }
 
+.mc-font-gradient {
+  font-family: 'Press Start 2P', system-ui;
+  font-size: 3.2rem; /* Adjusted slightly so it doesn't break layout */
+  background: linear-gradient(135deg, #64748b 0%, #cbd5e1 50%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 0.5rem;
+  /* Add a subtle blocky drop shadow to enhance the Minecraft feel */
+  filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.1));
+}
+
 .hero p {
   font-size: 1.25rem;
   color: var(--text-secondary);
@@ -469,7 +482,175 @@ button, input {
   height: auto;
 }
 
-/* History Page */
+/* ── Carousel ── */
+.carousel-section {
+  width: 100%;
+  max-width: 960px;
+  margin: 2rem auto 0;
+  position: relative;
+  padding: 1rem 0 3.5rem; /* bottom room for dots */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1.25rem;
+  flex: 1;
+  overflow: visible;
+  padding: 0.5rem 0;
+}
+
+.carousel-card {
+  flex: 0 0 260px;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  min-width: 0;
+}
+
+.carousel-card--center {
+  transform: scale(1.05);
+  opacity: 1;
+  z-index: 2;
+}
+
+.carousel-card--side {
+  transform: scale(0.93);
+  opacity: 0.65;
+  z-index: 1;
+}
+
+.carousel-arrow {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.15s;
+  z-index: 3;
+}
+
+.carousel-arrow:hover {
+  background: var(--bg-card-hover);
+  transform: scale(1.1);
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border-color);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, width 0.25s, border-radius 0.25s;
+}
+
+.carousel-dot--active {
+  background: var(--accent-purple);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ── Community Section ── */
+.community-section {
+  width: 100%;
+  margin-top: 5rem;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 60%, #1e293b 100%);
+  padding: 5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.community-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.community-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 640px;
+}
+
+.community-title {
+  font-family: 'Press Start 2P', system-ui;
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+}
+
+.community-sub {
+  color: #94a3b8;
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+}
+
+.community-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.community-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.03em;
+}
+
+.community-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.community-btn--discord {
+  background: #5865f2;
+  color: #ffffff;
+}
+
+.community-btn--youtube {
+  background: #ff0000;
+  color: #ffffff;
+}
+
+/* ── History Page ── */
 .history-page {
   max-width: 1000px;
   margin: 0 auto;
