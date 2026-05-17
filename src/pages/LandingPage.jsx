@@ -18,8 +18,8 @@ const LandingPage = () => {
             <Link to="/mods" className="btn btn-primary">
               Discover mods
             </Link>
-            <Link to="/changelog" className="btn btn-secondary">
-              Changelog
+            <Link to="/history" className="btn btn-secondary">
+              History
             </Link>
           </div>
         </div>
