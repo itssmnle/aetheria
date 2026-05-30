@@ -974,10 +974,11 @@ button, input {
   display: block;
 }
 
-/* Cropped images — clips the top ~12% to remove sky/dead space */
+/* Cropped images — fills width, max height capped, keeps aspect ratio */
 .timeline-img-cropped {
   width: 100%;
-  height: 220px;
+  max-height: 320px;
+  height: auto;
   object-fit: cover;
   object-position: center 20%;
   display: block;
@@ -988,45 +989,72 @@ button, input {
   position: relative;
 }
 
+.carousel-img-wrap {
+  position: relative;
+  min-height: 120px;
+  background: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Reddit Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
 .carousel-controls {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  padding: 0.55rem 1rem;
-  background: rgba(10, 10, 10, 0.75);
+  padding: 0.6rem 1rem;
+  background: rgba(10, 10, 10, 0.82);
   backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 .carousel-btn {
-  background: none;
-  border: 1px solid #3a3a3a;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
   color: #ffffff;
-  font-size: 1.5rem;
-  line-height: 1;
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
   padding: 0;
+  flex-shrink: 0;
 }
 
 .carousel-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: #ffffff;
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.5);
+  transform: scale(1.08);
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
 }
 
 .carousel-indicator {
   font-family: 'Reddit Mono', monospace;
   font-size: 0.72rem;
-  color: #888888;
+  color: #aaaaaa;
   letter-spacing: 0.04em;
   min-width: 3rem;
   text-align: center;
+  user-select: none;
 }
 
 .timeline-media.video-container {
