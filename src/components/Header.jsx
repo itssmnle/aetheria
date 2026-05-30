@@ -41,6 +41,10 @@ const Header = ({ searchQuery, setSearchQuery, showSearch = false }) => {
         <Link to="/history" className={`sidebar-link ${location.pathname === '/history' ? 'active' : ''}`}>
           <span className="link-text">HISTORY</span>
         </Link>
+
+        <Link to="/commands" className={`sidebar-link ${location.pathname === '/commands' ? 'active' : ''}`}>
+          <span className="link-text">CMDS</span>
+        </Link>
       </div>
 
       {/* ── Search Input (Dynamic) ── */}
