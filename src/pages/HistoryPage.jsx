@@ -39,7 +39,7 @@ const historyData = [
     date: "May 15, 2022",
     title: "Start of Aetheria",
     content: "Start of Aetheria on Bedrock edition including itssmnle, Kingston_wdw and Tonybaloney.",
-    images: ["/images/history/aetheria_start_1779008470164.png"]
+    images: ["/images/history/bedrock.png"]
   },
   {
     date: "May 29, 2022",

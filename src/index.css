@@ -646,6 +646,23 @@ button, input {
   -webkit-text-stroke: 0px !important;
 }
 
+.banner-server-ip {
+  position: relative;
+  z-index: 2;
+  font-family: 'Press Start 2P', system-ui;
+  font-size: 0.7rem;
+  background: linear-gradient(90deg, #f472b6 0%, #c084fc 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0.6rem 0 0 0;
+  padding: 0;
+  letter-spacing: 0.08em;
+  opacity: 0.92;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
 .landing-splash .scroll-down-btn {
   position: relative;
   z-index: 2;

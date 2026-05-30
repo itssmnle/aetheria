@@ -43,6 +43,7 @@ const LandingPage = () => {
         {/* ── First Fold: Minimalist Splash ── */}
         <div className="landing-splash">
           <h1 className="banner-title">Aetheria</h1>
+          <p className="banner-server-ip">aetheria.kinetichosting.gg</p>
           <button className="scroll-down-btn" onClick={scrollToContent} aria-label="Scroll Down">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 5v14M19 12l-7 7-7-7" />
