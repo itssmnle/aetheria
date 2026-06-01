@@ -81,6 +81,8 @@ const factions = {
   'La Sombra del Wither Cartel': 'faction-cartel',
   'Aetheria Empire': 'faction-empire',
   'Aetheria empire': 'faction-empire',
+  'NewSMP': 'faction-newsmp',
+  'newsmp': 'faction-newsmp',
   'Hanoi': 'faction-hanoi',
   'Dalat': 'faction-dalat',
   'Saigon': 'faction-saigon',
@@ -162,7 +164,7 @@ const historyData = [
   {
     date: "January 2024",
     title: "The Rigged Minigame Plains Fight",
-    content: "Big minigame was hosted in january 2024 - a group of players rigged the games and led to a massive fight in the plains near the new district + spawn was built and structures rose alongside it."
+    content: "Big minigame was hosted in January 2024 - a group of players rigged the games and led to a massive fight in the plains near the new district + spawn was built and structures rose alongside it.",
   },
   {
     date: "April 15, 2024",
@@ -197,13 +199,13 @@ const historyData = [
   {
     date: "August 13, 2025",
     title: "Official Server Trailer",
-    content: "August 13 2025 server trailer released!",
+    content: "August 13, 2025: Server trailer released!",
     video: "https://www.youtube.com/embed/m9YzqX62_Rg?si=PtI3vTRgRvhC3Ozk"
   },
   {
     date: "May 21, 2026",
     title: "New Season & Updated Spawn",
-    content: "May 21 2026 a new season for AetheriaSMP! Server spawn is updated.",
+    content: "May 21, 2026: A new season for AetheriaSMP! Server spawn is updated.",
     images: ["/images/history/newaeth.png"]
   }
 ];
