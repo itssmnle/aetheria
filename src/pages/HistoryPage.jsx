@@ -73,97 +73,139 @@ const ImageCarousel = ({ images, alt }) => {
   );
 };
 
-/* ── History Data (only real provided images) ── */
+/* ── Minecraft Names & Factions Parser ── */
+const players = ['itssmnle', 'kingston_wdw', 'CheeseIsWeird', 'suhao49', 'Bin_1104', 'MeetFlow', 'ItzAlan'];
+const factions = {
+  'La Sombra Del Wither Cartel': 'faction-cartel',
+  'la sombra del wither cartel': 'faction-cartel',
+  'La Sombra del Wither Cartel': 'faction-cartel',
+  'Aetheria Empire': 'faction-empire',
+  'Aetheria empire': 'faction-empire',
+  'Hanoi': 'faction-hanoi',
+  'Dalat': 'faction-dalat',
+  'Saigon': 'faction-saigon',
+  'Hue': 'faction-hue'
+};
+
+const formatTextWithMinecraftEntities = (text) => {
+  if (!text) return '';
+  
+  // Sort factions by length descending to match longer strings first
+  const factionKeys = Object.keys(factions).sort((a, b) => b.length - a.length);
+  const pattern = new RegExp(`\\b(${[...players, ...factionKeys].map(x => x.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|')})\\b`, 'gi');
+  
+  const parts = text.split(pattern);
+  if (parts.length === 1) return text;
+  
+  return parts.map((part, index) => {
+    // Check if player name
+    const matchedPlayer = players.find(p => p.toLowerCase() === part.toLowerCase());
+    if (matchedPlayer) {
+      return (
+        <span key={index} className={`player-name player-${matchedPlayer}`} title={`Minecraft Player: ${matchedPlayer}`}>
+          {matchedPlayer}
+        </span>
+      );
+    }
+    
+    // Check if faction
+    const factionKey = factionKeys.find(f => f.toLowerCase() === part.toLowerCase());
+    if (factionKey) {
+      const className = factions[factionKey];
+      return (
+        <span key={index} className={className}>
+          {part}
+        </span>
+      );
+    }
+    
+    return part;
+  });
+};
+
+/* ── History Data ── */
 const historyData = [
   {
     date: "May 15, 2022",
     title: "Start of Aetheria",
-    content: "Start of Aetheria on Bedrock edition including itssmnle, Kingston_wdw and Tonybaloney.",
-    images: ["/images/history/aetheria_start_1779008470164.png"],
+    content: "Start of Aetheria, on Bedrock Edition including itssmnle, kingston_wdw and CheeseIsWeird and various other members.",
+    images: ["/images/history/bedrock.png"]
   },
   {
     date: "May 29, 2022",
-    title: "The Birth of Cheatsmp",
-    content: "The birth of cheatsmp, a few structures including the prison, community house, mob farm, and iron golem farm.",
-    images: [
-      "/images/history/cheatsmp.png",
-      "/images/history/cheatsmp_prison_1779008538912.png",
-    ],
+    title: "The Birth of CheatSMP",
+    content: "The birth of CheatSMP, a few structures including the prison, community house, multiple areas popping up.",
+    images: ["/images/history/cheatsmp.png"]
   },
   {
     date: "January 2023",
     title: "Structural Development",
     content: "Structural development and invitation of 20 members, many structures rising.",
-    images: ["/images/history/servermap.png"],
+    images: ["/images/history/servermap.png"]
   },
   {
     date: "August 2, 2023",
     title: "Great Server War",
-    content: "Great server war, including more than 20+ structures damaged and 3 ships completely destroyed — many withers deployed causing massive destruction.",
-    images: ["/images/history/server_war_1779008649287.png"],
+    content: "Great server war, including more than 20+ structures damaged and 3 ships completely destroyed - many withers deployed causing massive destruction."
   },
   {
     date: "August 15, 2023",
-    title: "Grace Period",
-    content: "Grace period — the liberalists won. Rebuilding massive structures that were affected, including the prison which allowed the escape of strong player kingston_wdw.",
+    title: "Grace Period & Rebuilding",
+    content: "Grace period the liberalists won - rebuilding massive structures that were affected including the prison, which burnt down, in which allowed the escape of kingston_wdw who then griefed multiple structures."
   },
   {
     date: "September 29, 2023",
-    title: "A New District",
-    content: "A new district formed under the rule of suhao49, and the ice highway was established.",
-    images: [
-      "/images/history/ice_highway_1779008821173.png",
-      "/images/history/newdist.png",
-    ],
+    title: "A New District & Ice Highway",
+    content: "A new district formed under the rule of suhao49, and the highway was established.",
+    images: ["/images/history/newdist.png"]
   },
   {
     date: "January 2024",
-    title: "Big Minigame",
-    content: "Big minigame was hosted — a group of players rigged the games and led to a massive fight in the plains near the new district. Spawn was built and structures rose alongside it.",
-  },
-  {
-    date: "February 2024",
-    title: "Massive Dupe & Cheat Glitch",
-    content: "Massive dupe and cheat glitch by oliver — duping over 50 kits of full netherite, also spawning the ender dragon in the overworld.",
-    images: ["/images/history/dupe_glitch_1779009040024.png"],
+    title: "The Rigged Minigame Plains Fight",
+    content: "Big minigame was hosted in january 2024 - a group of players rigged the games and led to a massive fight in the plains near the new district + spawn was built and structures rose alongside it."
   },
   {
     date: "April 15, 2024",
-    title: "New SMP Formed",
-    content: "New SMP formed — the alliance of 4 houses into a big main district. The old area of the server is now protected under spawn protection.",
+    title: "NewSMP Formed",
+    content: "NewSMP was formed, the now formed alliance of 4 houses into a big main district. The old area of the server is now protected under spawn protection.",
     images: [
       "/images/history/dalat.png",
       "/images/history/dalat2.png",
       "/images/history/hanoi.png",
-      "/images/history/saigon.png",
-    ],
+      "/images/history/saigon.png"
+    ]
   },
   {
     date: "April 17, 2024",
-    title: "Aetheria Empire",
-    content: "Aetheria empire was formed under itssmnle. Factions of houses Dalat and Hanoi expanded significantly. Bin_1104, the only member of the Hue faction, singlehandedly maintained order. Saigon was still in a civil war in which many players hid from tyrants.",
+    title: "Aetheria Empire Formed",
+    content: "Aetheria Empire was formed under itssmnle, with structures such as the Aetherian Church, AetheriansXP being mostly populated. Factions of houses Dalat, Hanoi, expanded their area that prospered significantly meanwhile Bin_1104, the only member in the Hue faction singlehandedly maintained the order of his own faction by building his own structures. Saigon was still in a civil war in which many players hid from the ongoing war.",
     images: [
       "/images/history/aetheriaempire1.png",
-      "/images/history/aetheriaempire2.png",
-      "/images/history/aetheria_empire_1779009071331.png",
-    ],
+      "/images/history/aetheriaempire2.png"
+    ]
   },
   {
     date: "June 29, 2025",
-    title: "Playercount Surge",
-    content: "AetheriaSMP exceeded 50 players. With the likes of MeetFlow and ItzAlan, many structures and groups branched from existing factions — one notable group being La Sombra del Wither Cartel, distributing illegal goods across the server.",
+    title: "Higher Playercount & Cartel Rise",
+    content: "AetheriaSMP was pushed to a higher playercount, now exceeding 50. With the likes of MeetFlow and ItzAlan many other structures and groups branched from the existing factions. One notable group being the la sombra del wither cartel, distributing illegal goods across the server.",
     images: [
       "/images/history/memberexpand.png",
       "/images/history/cartel.png",
-      "/images/history/cartel2.png",
-    ],
+      "/images/history/cartel2.png"
+    ]
   },
   {
     date: "August 13, 2025",
-    title: "Server Trailer Released!",
-    content: "The official Aetheria server trailer was released showcasing the incredible world and its players.",
-    video: "https://www.youtube.com/embed/m9YzqX62_Rg?si=PtI3vTRgRvhC3Ozk",
+    title: "Official Server Trailer",
+    content: "August 13 2025 server trailer released!",
+    video: "https://www.youtube.com/embed/m9YzqX62_Rg?si=PtI3vTRgRvhC3Ozk"
   },
+  {
+    date: "May 21, 2026",
+    title: "New Season & Updated Spawn",
+    content: "May 21 2026 a new season for AetheriaSMP! Server spawn is updated.",
+    images: ["/images/history/newaeth.png"]
+  }
 ];
 
 /* ── Page Component ── */
@@ -184,7 +226,7 @@ const HistoryPage = () => {
               <div className="timeline-content">
                 <span className="timeline-date">{item.date}</span>
                 <h2>{item.title}</h2>
-                <p>{item.content}</p>
+                <p>{formatTextWithMinecraftEntities(item.content)}</p>
 
                 {item.images && item.images.length > 0 && (
                   <ImageCarousel images={item.images} alt={item.title} />

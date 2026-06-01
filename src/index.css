@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Inter:wght@300;400;500;600&family=Nunito:wght@400;500;600;700&family=Press+Start+2P&family=Reddit+Mono:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Inter:wght@300;400;500;600&family=Nunito:wght@400;500;600;700&family=Press+Start+2P&family=Reddit+Mono:wght@200..900&family=VT323&display=swap');
+@import url('https://fonts.cdnfonts.com/css/minecraft-4');
 
 
 
@@ -854,18 +855,19 @@ button, input {
 }
 
 .history-header h1 {
-  font-family: 'Bowlby One', cursive, sans-serif;
-  font-size: 3.5rem;
+  font-family: 'Minecraft', 'Press Start 2P', sans-serif;
+  font-size: 3.2rem;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.01em;
-  line-height: 1.05;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
   text-transform: uppercase;
+  text-shadow: 4px 4px 0px rgba(0,0,0,0.6);
 }
 
 .history-header p {
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--text-secondary);
   font-weight: 400;
 }
@@ -880,85 +882,220 @@ button, input {
   top: 0;
   bottom: 0;
   left: 50%;
-  width: 2px;
-  background-color: var(--border-color);
+  width: 4px;
+  background-color: #242424;
   transform: translateX(-50%);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
   width: 50%;
 }
 
 .timeline-item.left {
   left: 0;
-  padding-right: 2.5rem;
+  padding-right: 3rem;
 }
 
 .timeline-item.right {
   left: 50%;
-  padding-left: 2.5rem;
+  padding-left: 3rem;
 }
 
 .timeline-dot {
   position: absolute;
   top: 0;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background-color: var(--bg-card);
-  border: 4px solid var(--accent-purple);
+  width: 20px;
+  height: 20px;
+  border-radius: 4px; /* Square dots for Minecraft blocky feel */
+  background-color: #141414;
+  border: 4px solid #ffd700;
   z-index: 1;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: rotate(45deg);
+  border-color: #55ff55;
 }
 
 .timeline-item.left .timeline-dot {
-  right: -8px;
+  right: -10px;
 }
 
 .timeline-item.right .timeline-dot {
-  left: -8px;
+  left: -10px;
 }
 
 .timeline-content {
-  background-color: var(--bg-card);
-  padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  background-color: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(12px);
+  padding: 1.75rem;
+  border-radius: 8px;
+  border: 2px solid #2d2d2d;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8), inset 1px 1px 0px rgba(255,255,255,0.05);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .timeline-content:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  border-color: var(--accent-purple);
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.95);
+  border-color: #ffffff;
 }
 
 .timeline-date {
   display: inline-block;
-  font-family: 'Press Start 2P', system-ui, sans-serif;
+  font-family: 'Minecraft', 'Press Start 2P', system-ui, sans-serif;
   color: #ffd700;
-  font-size: 0.65rem;
-  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
   margin-bottom: 0.75rem;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
 }
 
 .timeline-content h2 {
-  font-family: 'Bowlby One', cursive, sans-serif;
-  font-size: 1.4rem;
+  font-family: 'Minecraft', 'Bowlby One', cursive, sans-serif;
+  font-size: 1.5rem;
   color: var(--text-primary);
   text-transform: uppercase;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   margin-bottom: 0.75rem;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.6);
 }
 
 .timeline-content p {
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  color: var(--text-secondary);
+  color: #e2e8f0;
   font-size: 0.95rem;
-  line-height: 1.65;
+  line-height: 1.7;
   margin-bottom: 1rem;
+}
+
+/* Minecraft Faction Theme Colors */
+.faction-hanoi {
+  color: #ff5555 !important;
+  font-family: 'Minecraft', monospace;
+  font-weight: bold;
+  text-shadow: 1.5px 1.5px 0px rgba(0, 0, 0, 0.6);
+}
+
+.faction-dalat {
+  color: #55ff55 !important;
+  font-family: 'Minecraft', monospace;
+  font-weight: bold;
+  text-shadow: 1.5px 1.5px 0px rgba(0, 0, 0, 0.6);
+}
+
+.faction-saigon {
+  color: #55aaff !important;
+  font-family: 'Minecraft', monospace;
+  font-weight: bold;
+  text-shadow: 1.5px 1.5px 0px rgba(0, 0, 0, 0.6);
+}
+
+.faction-hue {
+  color: #ffff55 !important;
+  font-family: 'Minecraft', monospace;
+  font-weight: bold;
+  text-shadow: 1.5px 1.5px 0px rgba(0, 0, 0, 0.6);
+}
+
+.faction-cartel {
+  background: linear-gradient(90deg, #aa00aa 0%, #ff55ff 50%, #aa00aa 100%);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-family: 'Minecraft', monospace;
+  font-weight: bold;
+  display: inline-block;
+  filter: drop-shadow(1.5px 1.5px 0px rgba(0, 0, 0, 0.8));
+  animation: cartelShimmer 6s linear infinite;
+  background-size: 200% auto;
+}
+
+@keyframes cartelShimmer {
+  to { background-position: 200% center; }
+}
+
+.faction-empire {
+  background: linear-gradient(135deg, #ffffff 0%, #aaaaaa 100%);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-family: 'Minecraft', monospace;
+  font-weight: bold;
+  display: inline-block;
+  filter: drop-shadow(1.5px 1.5px 0px rgba(0, 0, 0, 0.8));
+}
+
+/* Player names styling */
+.player-name {
+  font-family: 'Minecraft', 'VT323', monospace;
+  color: #f1f5f9;
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 1px 6px 3px 6px;
+  border-radius: 4px;
+  border: 1px solid #475569;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.6);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  vertical-align: middle;
+  margin: 0 3px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.player-name::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.player-name.player-itssmnle::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect x='0' y='0' width='8' height='8' fill='%23e1b086'/%3E%3Crect x='1' y='1' width='6' height='2' fill='%23462310'/%3E%3Crect x='1' y='4' width='2' height='1' fill='%232c150b'/%3E%3Crect x='5' y='4' width='2' height='1' fill='%232c150b'/%3E%3Crect x='2' y='5' width='4' height='1' fill='%2389421f'/%3E%3C/svg%3E");
+}
+
+.player-name.player-kingston_wdw::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect x='0' y='0' width='8' height='8' fill='%23555555'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23ff5555'/%3E%3Crect x='5' y='2' width='1' height='1' fill='%23ff5555'/%3E%3Crect x='2' y='5' width='4' height='1' fill='%23222222'/%3E%3C/svg%3E");
+}
+
+.player-name.player-CheeseIsWeird::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect x='0' y='0' width='8' height='8' fill='%23ffff55'/%3E%3Crect x='1' y='2' width='1' height='1' fill='%23ffaa00'/%3E%3Crect x='5' y='3' width='1' height='1' fill='%23ffaa00'/%3E%3Crect x='3' y='5' width='2' height='1' fill='%23ffaa00'/%3E%3C/svg%3E");
+}
+
+.player-name.player-suhao49::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect x='0' y='0' width='8' height='8' fill='%23a1a1aa'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%235555ff'/%3E%3Crect x='5' y='2' width='1' height='1' fill='%235555ff'/%3E%3Crect x='3' y='5' width='2' height='1' fill='%233f3f46'/%3E%3C/svg%3E");
+}
+
+.player-name.player-Bin_1104::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect x='0' y='0' width='8' height='8' fill='%23fbbf24'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%230284c7'/%3E%3Crect x='5' y='2' width='1' height='1' fill='%230284c7'/%3E%3Crect x='2' y='5' width='4' height='1' fill='%230369a1'/%3E%3C/svg%3E");
+}
+
+.player-name.player-MeetFlow::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect x='0' y='0' width='8' height='8' fill='%23ec4899'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23ffffff'/%3E%3Crect x='5' y='2' width='1' height='1' fill='%23ffffff'/%3E%3Crect x='2' y='5' width='4' height='1' fill='%23be185d'/%3E%3C/svg%3E");
+}
+
+.player-name.player-ItzAlan::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect x='0' y='0' width='8' height='8' fill='%2310b981'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23ffffff'/%3E%3Crect x='5' y='2' width='1' height='1' fill='%23ffffff'/%3E%3Crect x='2' y='5' width='4' height='1' fill='%23047857'/%3E%3C/svg%3E");
+}
+
+.player-name:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.9), 0 0 10px rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
 .timeline-media {
