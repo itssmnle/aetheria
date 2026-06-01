@@ -131,50 +131,65 @@ const historyData = [
     date: "May 15, 2022",
     title: "Start of Aetheria",
     content: "Start of Aetheria, on Bedrock Edition including itssmnle, kingston_wdw and CheeseIsWeird and various other members.",
-    images: ["/images/history/bedrock.png"]
+    images: ["/images/uploaded/start of server.png"]
   },
   {
     date: "May 29, 2022",
     title: "The Birth of CheatSMP",
     content: "The birth of CheatSMP, a few structures including the prison, community house, multiple areas popping up.",
-    images: ["/images/history/cheatsmp.png"]
+    images: [
+      "/images/uploaded/cheatsmp.png",
+      "/images/uploaded/cheatsmp2.png",
+      "/images/uploaded/prison.png"
+    ]
   },
   {
     date: "January 2023",
     title: "Structural Development",
     content: "Structural development and invitation of 20 members, many structures rising.",
-    images: ["/images/history/servermap.png"]
+    images: [
+      "/images/history/servermap.png",
+      "/images/uploaded/tartara.png",
+      "/images/uploaded/tartara2.png"
+    ]
   },
   {
     date: "August 2, 2023",
     title: "Great Server War",
-    content: "Great server war, including more than 20+ structures damaged and 3 ships completely destroyed - many withers deployed causing massive destruction."
+    content: "Great server war, including more than 20+ structures damaged and 3 ships completely destroyed - many withers deployed causing massive destruction.",
+    images: ["/images/uploaded/server war ship.png"]
   },
   {
     date: "August 15, 2023",
     title: "Grace Period & Rebuilding",
-    content: "Grace period the liberalists won - rebuilding massive structures that were affected including the prison, which burnt down, in which allowed the escape of kingston_wdw who then griefed multiple structures."
+    content: "Grace period the liberalists won - rebuilding massive structures that were affected including the prison, which burnt down, in which allowed the escape of kingston_wdw who then griefed multiple structures.",
+    images: ["/images/uploaded/prismarine.png"]
   },
   {
     date: "September 29, 2023",
     title: "A New District & Ice Highway",
     content: "A new district formed under the rule of suhao49, and the highway was established.",
-    images: ["/images/history/newdist.png"]
+    images: [
+      "/images/uploaded/new district suhao.png",
+      "/images/uploaded/new district suhao 2.png",
+      "/images/uploaded/highway.png",
+      "/images/uploaded/highway2.png"
+    ]
   },
   {
     date: "January 2024",
     title: "The Rigged Minigame Plains Fight",
-    content: "Big minigame was hosted in January 2024 - a group of players rigged the games and led to a massive fight in the plains near the new district + spawn was built and structures rose alongside it.",
+    content: "Big minigame was hosted in January 2024 - a group of players rigged the games and led to a massive fight in the plains near the new district + spawn was built and structures rose alongside it."
   },
   {
     date: "April 15, 2024",
     title: "NewSMP Formed",
     content: "NewSMP was formed, the now formed alliance of 4 houses into a big main district. The old area of the server is now protected under spawn protection.",
     images: [
-      "/images/history/dalat.png",
-      "/images/history/dalat2.png",
-      "/images/history/hanoi.png",
-      "/images/history/saigon.png"
+      "/images/uploaded/newsmp.png",
+      "/images/uploaded/newsmp2.png",
+      "/images/uploaded/newsmp3.png",
+      "/images/uploaded/newsmp4.png"
     ]
   },
   {
@@ -182,8 +197,13 @@ const historyData = [
     title: "Aetheria Empire Formed",
     content: "Aetheria Empire was formed under itssmnle, with structures such as the Aetherian Church, AetheriansXP being mostly populated. Factions of houses Dalat, Hanoi, expanded their area that prospered significantly meanwhile Bin_1104, the only member in the Hue faction singlehandedly maintained the order of his own faction by building his own structures. Saigon was still in a civil war in which many players hid from the ongoing war.",
     images: [
+      "/images/uploaded/aetheria empire.png",
       "/images/history/aetheriaempire1.png",
-      "/images/history/aetheriaempire2.png"
+      "/images/uploaded/holylands.png",
+      "/images/uploaded/hanoi.png",
+      "/images/uploaded/dalat.png",
+      "/images/uploaded/saigon1.png",
+      "/images/uploaded/saigon2.png"
     ]
   },
   {
@@ -206,7 +226,7 @@ const historyData = [
     date: "May 21, 2026",
     title: "New Season & Updated Spawn",
     content: "May 21, 2026: A new season for AetheriaSMP! Server spawn is updated.",
-    images: ["/images/history/newaeth.png"]
+    images: ["/images/uploaded/new season spawn.png"]
   }
 ];
 
