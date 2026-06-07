@@ -24,17 +24,6 @@ const Header = ({ searchQuery, setSearchQuery, showSearch = false }) => {
     }
   };
 
-  const handleMapClick = (e) => {
-    if (location.pathname === '/') {
-      e.preventDefault();
-      const element = document.getElementById('map-section');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-      navigate('/#map', { replace: true });
-    }
-  };
-
   return (
     <nav className="sidebar-nav">
       {/* ── Top Logo Circle Image Only ── */}
@@ -46,16 +35,12 @@ const Header = ({ searchQuery, setSearchQuery, showSearch = false }) => {
 
       {/* ── Navigation Links (No Icons, simple underlines) ── */}
       <div className="sidebar-links">
-        <Link to="/" className={`sidebar-link ${location.pathname === '/' && location.hash !== '#trailer' && location.hash !== '#map' ? 'active' : ''}`} onClick={handleHomeClick}>
+        <Link to="/" className={`sidebar-link ${location.pathname === '/' && location.hash !== '#trailer' ? 'active' : ''}`} onClick={handleHomeClick}>
           <span className="link-text">HOME</span>
         </Link>
         
         <Link to="/#trailer" className={`sidebar-link ${location.hash === '#trailer' ? 'active' : ''}`} onClick={handleTrailerClick}>
           <span className="link-text">TRAILER</span>
-        </Link>
-
-        <Link to="/#map" className={`sidebar-link ${location.hash === '#map' ? 'active' : ''}`} onClick={handleMapClick}>
-          <span className="link-text">MAP</span>
         </Link>
 
         <Link to="/mods" className={`sidebar-link ${location.pathname === '/mods' ? 'active' : ''}`}>

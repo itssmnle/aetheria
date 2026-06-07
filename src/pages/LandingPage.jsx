@@ -18,14 +18,6 @@ const LandingPage = () => {
         }
       }, 100);
       return () => clearTimeout(timer);
-    } else if (location.hash === '#map') {
-      const timer = setTimeout(() => {
-        const element = document.getElementById('map-section');
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-      return () => clearTimeout(timer);
     }
   }, [location.hash]);
 
@@ -88,6 +80,22 @@ const LandingPage = () => {
                 ))}
               </div>
             </div>
+            {/* Server Map Link */}
+            <div className="map-link-row">
+              <a
+                href="http://15.235.180.150:25589"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="map-link-btn"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+                  <line x1="9" y1="3" x2="9" y2="18"/>
+                  <line x1="15" y1="6" x2="15" y2="21"/>
+                </svg>
+                View Server Map
+              </a>
+            </div>
           </div>
 
           {/* Community Section */}
@@ -126,22 +134,6 @@ const LandingPage = () => {
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin" 
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
-
-          {/* Map Section */}
-          <div id="map-section" className="map-section">
-            <div className="map-header">
-              <h2 className="map-title">SERVER MAP</h2>
-              <div className="map-subtitle">3D INTERACTIVE WORLD VIEWER</div>
-            </div>
-            <div className="map-iframe-wrapper">
-              <iframe 
-                src="http://15.235.180.150:25589" 
-                title="Aetheria SMP Server Map" 
-                frameBorder="0" 
                 allowFullScreen
               ></iframe>
             </div>
