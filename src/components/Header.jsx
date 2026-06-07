@@ -4,6 +4,18 @@ import { Link, useLocation } from 'react-router-dom';
 const Header = ({ searchQuery, setSearchQuery, showSearch = false }) => {
   const location = useLocation();
 
+  const handleHomeClick = (e) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (location.hash) {
+        window.history.pushState(null, '', '/');
+        // Trigger a re-render/event for hash change if needed, or simply force hash to update
+        window.location.hash = '';
+      }
+    }
+  };
+
   const handleTrailerClick = (e) => {
     if (location.pathname === '/') {
       e.preventDefault();
@@ -19,14 +31,14 @@ const Header = ({ searchQuery, setSearchQuery, showSearch = false }) => {
     <nav className="sidebar-nav">
       {/* ── Top Logo Circle Image Only ── */}
       <div className="sidebar-logo-section">
-        <Link to="/" className="sidebar-logo-circle">
+        <Link to="/" className="sidebar-logo-circle" onClick={handleHomeClick}>
           <img src="/images/logo.png" alt="Aetheria Logo" className="sidebar-logo-img" />
         </Link>
       </div>
 
       {/* ── Navigation Links (No Icons, simple underlines) ── */}
       <div className="sidebar-links">
-        <Link to="/" className={`sidebar-link ${location.pathname === '/' && location.hash !== '#trailer' ? 'active' : ''}`}>
+        <Link to="/" className={`sidebar-link ${location.pathname === '/' && location.hash !== '#trailer' ? 'active' : ''}`} onClick={handleHomeClick}>
           <span className="link-text">HOME</span>
         </Link>
         

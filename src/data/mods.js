@@ -24,18 +24,6 @@ export const modsData = [
     "url": "https://modrinth.com/mod/cloth-config"
   },
   {
-    "id": "fabric-installer",
-    "name": "the gamer pack",
-    "version": "1.1.0",
-    "categories": [
-      "Core / API"
-    ],
-    "author": "modmuss50",
-    "description": "it is a thing for gamers to have to make it seem like they have a mod but don't",
-    "icon": "https://cdn.modrinth.com/data/P7dR8mSH/icon.png",
-    "url": "https://modrinth.com/mod/fabric-api"
-  },
-  {
     "id": "fabric-language-kotlin",
     "name": "Fabric Language Kotlin",
     "version": "1.13.11+kotlin.2.3.21",
