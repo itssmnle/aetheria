@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react';
 import LandingPage from './pages/LandingPage';
 import ModsPage from './pages/ModsPage';
 import HistoryPage from './pages/HistoryPage';
+import GalleryPage from './pages/GalleryPage';
 import CommandsPage from './pages/CommandsPage';
 
 // Helper component that resets page scroll to (0, 0) on route transition
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/mods" element={<ModsPage />} />
         <Route path="/history" element={<HistoryPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/commands" element={<CommandsPage />} />
       </Routes>
       <Analytics />

@@ -1,18 +1,15 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Header = ({ searchQuery, setSearchQuery, showSearch = false }) => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleHomeClick = (e) => {
     if (location.pathname === '/') {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      if (location.hash) {
-        window.history.pushState(null, '', '/');
-        // Trigger a re-render/event for hash change if needed, or simply force hash to update
-        window.location.hash = '';
-      }
+      navigate('/', { replace: true });
     }
   };
 
@@ -23,7 +20,18 @@ const Header = ({ searchQuery, setSearchQuery, showSearch = false }) => {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-      window.history.pushState(null, '', '#trailer');
+      navigate('/#trailer', { replace: true });
+    }
+  };
+
+  const handleMapClick = (e) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById('map-section');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      navigate('/#map', { replace: true });
     }
   };
 
@@ -38,12 +46,16 @@ const Header = ({ searchQuery, setSearchQuery, showSearch = false }) => {
 
       {/* ── Navigation Links (No Icons, simple underlines) ── */}
       <div className="sidebar-links">
-        <Link to="/" className={`sidebar-link ${location.pathname === '/' && location.hash !== '#trailer' ? 'active' : ''}`} onClick={handleHomeClick}>
+        <Link to="/" className={`sidebar-link ${location.pathname === '/' && location.hash !== '#trailer' && location.hash !== '#map' ? 'active' : ''}`} onClick={handleHomeClick}>
           <span className="link-text">HOME</span>
         </Link>
         
         <Link to="/#trailer" className={`sidebar-link ${location.hash === '#trailer' ? 'active' : ''}`} onClick={handleTrailerClick}>
           <span className="link-text">TRAILER</span>
+        </Link>
+
+        <Link to="/#map" className={`sidebar-link ${location.hash === '#map' ? 'active' : ''}`} onClick={handleMapClick}>
+          <span className="link-text">MAP</span>
         </Link>
 
         <Link to="/mods" className={`sidebar-link ${location.pathname === '/mods' ? 'active' : ''}`}>
@@ -52,6 +64,10 @@ const Header = ({ searchQuery, setSearchQuery, showSearch = false }) => {
 
         <Link to="/history" className={`sidebar-link ${location.pathname === '/history' ? 'active' : ''}`}>
           <span className="link-text">HISTORY</span>
+        </Link>
+
+        <Link to="/gallery" className={`sidebar-link ${location.pathname === '/gallery' ? 'active' : ''}`}>
+          <span className="link-text">GALLERY</span>
         </Link>
 
         <Link to="/commands" className={`sidebar-link ${location.pathname === '/commands' ? 'active' : ''}`}>

@@ -126,7 +126,7 @@ const formatTextWithMinecraftEntities = (text) => {
 };
 
 /* ── History Data ── */
-const historyData = [
+export const historyData = [
   {
     date: "May 15, 2022",
     title: "Start of Aetheria",
